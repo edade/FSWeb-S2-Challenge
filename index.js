@@ -131,11 +131,7 @@ bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 	*/
 
 function cumlelereDonustur(cumleler, ayrac = ",") {
-  for (let i = 0; i < cumleler.length; i++) {
-    cumleKur(cumleler[i]);
-    cumleler[i].join(" ");
-  }
-  return cumleler;
+  return cumleler.map((item) => item.join(ayrac));
 }
 console.log(cumlelereDonustur(cumleler, " "));
 
@@ -203,6 +199,9 @@ var manav;
 function emojileriDonustur(mesaj, emojiler) {
   for (let key in emojiler) {
     if (mesaj.includes(key)) {
+      mesaj = mesaj.replaceAll(key, emojiler[key]);
+    } else {
+      key = key.toUpperCase();
       mesaj = mesaj.replaceAll(key, emojiler[key]);
     }
   }
