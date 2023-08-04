@@ -131,7 +131,8 @@ bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 	*/
 
 function cumlelereDonustur(cumleler, ayrac = ",") {
-  return cumleler.map((item) => item.join(ayrac));
+  let dizi = cumleler.map((item) => item.join(ayrac));
+  return dizi;
 }
 console.log(cumlelereDonustur(cumleler, " "));
 
@@ -148,11 +149,10 @@ console.log(cumlelereDonustur(cumleler, " "));
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(cumleler, cb_cumlekur, cb_cumleleredonustur) {
-  const dizi = [];
-  dizi.push(cb_cumleleredonustur(cumleler, " "));
-  dizi = cb_cumlekur(dizi[1], dizi[2], dizi[3], dizi[5], dizi[7]);
-  return dizi;
+function paragrafOlustur(cumleler, cumlekur, cumlelereDonustur) {
+  let dizi = cumlelereDonustur(cumleler, " ");
+  let paragraf = cumlekur(dizi[1], dizi[3], dizi[5], dizi[7], dizi[9]);
+  return paragraf;
 }
 console.log(paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
 /* 	GÖREV 3:
@@ -200,13 +200,18 @@ var manav;
  */
 
 function emojileriDonustur(mesaj, emojiler) {
-  for (let key in emojiler) {
+  /* for (let key in emojiler) {
     if (mesaj.includes(key)) {
       mesaj = mesaj.replaceAll(key, emojiler[key]);
     } else {
       key = key.toUpperCase();
       mesaj = mesaj.replaceAll(key, emojiler[key]);
     }
+  }
+  return mesaj; */
+  for (let key in emojiler) {
+    mesaj = mesaj.replaceAll(key.toLowerCase(), emojiler[key]);
+    mesaj = mesaj.replaceAll(key.toUpperCase(), emojiler[key]);
   }
   return mesaj;
 }
