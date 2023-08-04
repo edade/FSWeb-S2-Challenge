@@ -130,7 +130,14 @@ bircumle = cumleKur("Ben ", "iyi ", "bir ", "yazılımcı ", "olacağım!");
 			5. Oluşturulan yeni dizi döndürülecek.
 	*/
 
-function cumlelereDonustur(cumleler, ayrac = ",") {}
+function cumlelereDonustur(cumleler, ayrac = ",") {
+  for (let i = 0; i < cumleler.length; i++) {
+    cumleKur(cumleler[i]);
+    cumleler[i].join(" ");
+  }
+  return cumleler;
+}
+console.log(cumlelereDonustur(cumleler, " "));
 
 /* GÖREV 2:
 		paragrafOlustur fonksiyonuna aşağıdakileri uygulayın.
@@ -145,7 +152,7 @@ function cumlelereDonustur(cumleler, ayrac = ",") {}
 			6. Oluşturulan paragraf döndürülecek
 	*/
 
-function paragrafOlustur(/* kodlar buraya */) {
+function paragrafOlustur(cumleler, cb_cumlekur, cb_cumleleredonustur) {
   /* kodlar buraya */
 }
 
@@ -193,9 +200,15 @@ var manav;
 			4. elde edilen string döndürülecek
  */
 
-function emojileriDonustur(/* kodlar buraya */) {
-  /* kodlar buraya */
+function emojileriDonustur(mesaj, emojiler) {
+  for (let key in emojiler) {
+    if (mesaj.includes(key)) {
+      mesaj = mesaj.replaceAll(key, emojiler[key]);
+    }
+  }
+  return mesaj;
 }
+console.log(emojileriDonustur("Selam :) nasıılsın :D", emojiler));
 
 /*  Bu satırın aşağısındaki kodları lütfen değiştirmeyin  */
 function sa() {
