@@ -149,9 +149,12 @@ console.log(cumlelereDonustur(cumleler, " "));
 	*/
 
 function paragrafOlustur(cumleler, cb_cumlekur, cb_cumleleredonustur) {
-  /* kodlar buraya */
+  const dizi = [];
+  dizi.push(cb_cumleleredonustur(cumleler, " "));
+  dizi = cb_cumlekur(dizi[1], dizi[2], dizi[3], dizi[5], dizi[7]);
+  return dizi;
 }
-
+console.log(paragrafOlustur(cumleler, cumleKur, cumlelereDonustur));
 /* 	GÖREV 3:
 		Yukarıda isimleri sebzeler ve meyveler olan 2 dizi bulunmaktadır. Bu dizileri kullanarak aşağıdaki görevleri tamamlayın.
 			3a. meyveler dizisinin ilk ve son elemanlarını diziden çıkartın. (.pop ve .shift metodlarını kullanın)
